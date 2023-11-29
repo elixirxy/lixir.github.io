@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Page Scrolling with Indicator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      color: white;
+      font-size: 2.5em;
+      margin-top: 60px;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+      margin: auto; /* Center the image vertically */
+      display: block;
+    }
+
+    #section1 {
+      background-color: #42597d;
+    }
+
+    #section2 {
+      background-color: #314b76;
+    }
+
+    #section3 {
+      background-color: #42597d;
+    }
+
+    #section4 {
+      background-color: #314b76;
+    }
+
+    #section5 {
+      background-color: #42597d;
+    }
+
+    #section6 {
+      background-color: #314b76;
+    }
+
+    #section7 {
+      background-color: #42597d;
+    }
+
+    #section8 {
+      background-color: #314b76;
+    }
+
+    #section9 {
+      background-color: #42597d;
+    }
+
+    #indicator {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .indicator-dot {
+      width: 30px;
+      height: 30px;
+      margin: 5px 0;
+      border-radius: 50%;
+      background-color: #333;
+      cursor: pointer;
+    }
+
+    .active {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="section1">
+    <a href="https://docs.google.com/document/d/1s1xalkI1Xj7KMbMpwuSMS2B-TU6OoVZOWJRcJbcJHUI/edit?usp=sharing"> 
+    <img src="b.png" alt="Image 1">
+    <h1>
+      파이썬 기반으로 제작된 현재 과목과 다음 과목 시간표 알리미
+    </h1>
+  </section>
+
+  <section id="section2">
+    <a href="https://docs.google.com/document/d/1aRaGfSSg9jt-9_Q49z0SE9JsAm34NZWEwVnCNDmdQQU/edit?usp=sharing"> 
+    <img src="11.png" alt="Image 2">
+    <h1>
+      로또 번호 생성 및 터틀모듈을 사용한 시각화
+    </h1>
+  </section>
+
+  <section id="section3">
+    <a href="링크1.html"> 
+    <img src="22.png" alt="Image 3">
+    <h1>
+      파이썬으로 간단한 물리 시뮬레이션 제작 
+      <br>
+      (간단한 입자의 수직 낙하 시뮬레이션 프로그램)
+    </h1>
+  </section>
+
+  <section id="section4">
+    <a href="https://docs.google.com/document/d/1g9cjv1Le38KSKCTennuNT5JR_CONrxC0fQkFpXHcRsk/edit?usp=sharing"> 
+    <img src="암호화.jpg" alt="Image 4">
+    <h1>
+      암호화 기초, RSA 암호화 탐구 + 파이썬으로 RSA 암호화 프로그램 구현
+    </h1>
+  </section>
+
+  <section id="section5">
+    <a href="https://docs.google.com/document/d/16H0J5LJoIV-6fXhSbtfmMbLhAQXIPvceo_coiVP5zaQ/edit?usp=sharing"> 
+    <img src="마퀸.png" alt="Image 5">
+    <h1>
+      마퀸 로봇으로 미로 탈출 코드 구현
+    </h1>
+  </section>
+
+  <section id="section6">
+    <a href="https://docs.google.com/document/d/1uujHysexXNF44N2FuEsD3Z8AAjp5-Ukg8y6O__VQAGo/edit?usp=sharing"> 
+    <img src="3.jpg" alt="Image 6">
+    <h1>
+      블록체인 기술에 대하여
+    </h1>
+  </section>
+
+  <section id="section7">
+    <a href="https://docs.google.com/document/d/160HM0CzEq9FldiCuGGnbB0hB6YoYwMyyCEh7GOSgbsA/edit?usp=sharing"> 
+    <img src="해킹의 역사.jpg" alt="Image 7">
+    <h1>
+      해킹의 역사와 사건 탐구 프로젝트
+    </h1>
+  </section>
+
+  <section id="section8">
+    <a href="https://docs.google.com/document/d/1Z477-wJKCLIr8Cx82DNZNWsH-fcYBQuu9FXtXhtfVFo/edit?usp=sharing"> 
+    <img src="그린컴퓨팅.jpg" alt="Image 8">
+    <h1>
+      SD-지속가능발전 실천 그린컴퓨팅 탐구
+    </h1>
+  </section>
+
+  <section id="section9">
+    <a href="https://docs.google.com/document/d/1qXlsdfMjPuFLbYbU38ZWkJE-6lQnJyqA7jbe6n9iL_U/edit?usp=sharing"> 
+    <img src="ㄱ.jpg" alt="Image 9">
+    <h1>
+      c언어와 포인터에 관하여
+    </h1>
+  </section>
+
+  <div id="indicator">
+    <div class="indicator-dot" onclick="scrollToSection(1)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(2)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(3)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(4)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(5)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(6)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(7)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(8)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(9)"></div>
+  </div>
+
+  <script>
+    document.addEventListener('wheel', function(event) {
+      var delta = event.deltaY;
+
+      if (delta > 0) {
+        window.scrollBy(0, window.innerHeight * 0.1);
+      } else {
+        window.scrollBy(0, -window.innerHeight * 0.1);
+      }
+    });
+
+    function updateIndicator() {
+      var currentSection = Math.round(window.scrollY / window.innerHeight) + 1;
+      document.querySelectorAll('.indicator-dot').forEach(function(dot, index) {
+        dot.classList.remove('active');
+        if (index + 1 === currentSection) {
+          dot.classList.add('active');
+        }
+      });
+    }
+
+    updateIndicator();
+
+    function scrollToSection(sectionNumber) {
+      window.scrollTo({
+        top: (sectionNumber - 1) * window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
+
+    window.addEventListener('scroll', updateIndicator);
+  </script>
+
+</body>
+</html>

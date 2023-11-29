@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Page Scrolling with Indicator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      scroll-behavior: smooth; /* Added smooth scroll behavior */
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+    }
+
+    #section1 {
+      background-color: #42597d;
+      color: white;
+      font-size: 3em; /* Adjust the font size as needed */
+    }
+
+    #section2 {
+      background-color: #314b76;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #about-me {
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    #description {
+      text-align: left;
+    }
+
+    #section2 img {
+      width: 100px; /* Adjust the image width as needed */
+      border-radius: 50%;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    #section3 {
+      background-color: #42597d;
+      color: white;
+    }
+
+    #indicator {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .indicator-dot {
+      width: 30px;
+      height: 30px;
+      margin: 5px 0;
+      border-radius: 50%;
+      background-color: #333;
+      cursor: pointer;
+    }
+
+    .active {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="section1">
+    <h1 style="color: white; font-size: 3em;">PORTFOLIO</h1>
+    - Yejun Porfolio -
+  </section>
+  
+  <section id="section2" style="color: white;">
+    <div id="about-me">
+        <h1 style="color: white; font-size: 2em;">ABOUT ME</h1>
+      <div id="description">
+        <p>
+            제 포트폴리오에 오신걸 환영합니다!! 저는 컴퓨터를 좋아하는 학생으로, C언어를 중점으로 공부하면서 프로그래밍과 컴퓨터 공학에 대한 지식을 쌓고 있습니다.
+            최근에는 C에 이어 다양한 언어와 프로그램을 개발하고 있으며 고촌고등학교 컴퓨터 동아리 '커넥트'에서 활동하고 있습니다.
+            또한 정보보안전문가를 꿈으로 삼고 있습니다.
+        <!-- Add any additional content or styling as needed -->
+      </div>
+    </div>
+    <div>
+      <a href="https://blog.naver.com/elixirxy" target="_blank">
+        <img src="download.png" alt="Instagram">
+      </a>
+      <a href="https://www.instagram.com/elixir_.xx" target="_blank">
+        <img src="download.jpg" alt="Blog">
+      </a>
+    </div>
+  </section>
+  
+  <section id="section3">
+    <h1 style="color: white; font-size: 2em;">PROJECTS</h1>
+    <!-- Add any content related to your projects here -->
+    <p>
+        <a href="projects.html" target="_blank" style="color: white; text-decoration: none;">Explore More -></a>
+    </p>
+    <div>
+      <img src="암호화.jpg" alt="Project Image0" style="width: 20%; max-width: 1000px;">
+    </a>
+      <img src="a.png" alt="Project Image1" style="width: 20%; max-width: 1000px;">
+    </a>
+      <img src="파이썬그리고c.jpg" alt="Project Image2" style="width: 10%; max-width: 1000px;">
+    </a>
+    <img src="b.png" alt="Project Image3" style="width: 15%; max-width: 1000px;">
+    </a>
+    <img src="해킹의 역사.jpg" alt="Project Image4" style="width: 20%; max-width: 1000px;">
+    </a>
+    <img src="ㄱ.jpg" alt="Project Image5" style="width: 10%; max-width: 1000px;">
+    </div>
+  </section>
+  
+  
+
+  <div id="indicator">
+    <div class="indicator-dot" onclick="scrollToSection(1)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(2)"></div>
+    <div class="indicator-dot" onclick="scrollToSection(3)"></div>
+  </div>
+
+  <script>
+    document.addEventListener('wheel', function(event) {
+      var delta = event.deltaY;
+
+      if (delta > 0) {
+        // Scroll down to the next section
+        window.scrollBy(0, window.innerHeight * 0.1);
+      } else {
+        // Scroll up to the previous section
+        window.scrollBy(0, -window.innerHeight * 0.1);
+      }
+    });
+
+    function updateIndicator() {
+      var currentSection = Math.round(window.scrollY / window.innerHeight) + 1;
+      document.querySelectorAll('.indicator-dot').forEach(function(dot, index) {
+        dot.classList.remove('active');
+        if (index + 1 === currentSection) {
+          dot.classList.add('active');
+        }
+      });
+    }
+
+    // Initialize the indicator dots
+    updateIndicator();
+
+    // Scroll to a specific section when clicking on an indicator dot
+    function scrollToSection(sectionNumber) {
+      window.scrollTo({
+        top: (sectionNumber - 1) * window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
+
+    // Update the indicator dots after scrolling
+    window.addEventListener('scroll', updateIndicator);
+  </script>
+
+</body>
+</html>
